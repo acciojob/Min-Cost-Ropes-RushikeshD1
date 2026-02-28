@@ -20,11 +20,12 @@ function mincost(arr)
 		if(idx === -1){
 			arr.push(sum);
 		}else{
-			arr.slice(idx, 0, sum);
+			arr.splice(idx, 0, sum);
 		}
 	}
 
 	return cost;
 
 }
+
 module.exports=mincost;
