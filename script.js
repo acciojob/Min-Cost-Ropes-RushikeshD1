@@ -10,12 +10,12 @@ function mincost(arr)
 	}
 	
 	for(let i=2; i<arr.length; i++){
-		sum += res[i-2] + arr[i];
-		res.push(sum);
+		sum += resArr[i-2] + arr[i];
+		resArr.push(sum);
 	}
 
 	if (resArr.length > 0){
-		let ans = res.reduce((acc, curr) => acc + curr,0);
+		let ans = resArr.reduce((acc, curr) => acc + curr,0);
 		return ans;
 	}
 
