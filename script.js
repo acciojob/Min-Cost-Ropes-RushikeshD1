@@ -14,7 +14,7 @@ function mincost(arr)
 		res.push(sum);
 	}
 
-	if (res.length > 0){
+	if (resArr.length > 0){
 		let ans = res.reduce((acc, curr) => acc + curr,0);
 		return ans;
 	}
