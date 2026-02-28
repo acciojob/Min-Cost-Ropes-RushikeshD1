@@ -4,6 +4,7 @@ function mincost(arr)
 // return the min cost
 	if (arr.length <= 1) return 0;
 
+	arr.sort((a,b)=> a-b);
 	let cost = 0;
 
 	while(arr.length > 1){
