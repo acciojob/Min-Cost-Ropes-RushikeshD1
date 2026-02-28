@@ -2,24 +2,28 @@ function mincost(arr)
 { 
 //write your code here
 // return the min cost
-	let resArr = [];
-	let sum = 0;
-	if (arr.length > 1){
-		sum = arr[0] + arr[1];
-		resArr.push(sum);
-	}
-	
-	for(let i=2; i<arr.length; i++){
-		sum += resArr[i-2] + arr[i];
-		resArr.push(sum);
+	if (arr.length <= 1) return 0;
+
+	let cost = 0;
+
+	while(arr.length > 1){
+		let a = arr.shift();
+		let b = arr.shift();
+
+		let sum = a + b;
+
+		cost += sum;
+
+		let idx = arr.findIndex(x => x > sum);
+
+		if(idx === -1){
+			arr.push(sum);
+		}else{
+			arr.slice(idx, 0, sum);
+		}
 	}
 
-	if (resArr.length > 0){
-		let ans = resArr.reduce((acc, curr) => acc + curr,0);
-		return ans;
-	}
-
-	return arr[0];
+	return cost;
 
 }
 module.exports=mincost;
